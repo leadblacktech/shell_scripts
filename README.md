@@ -1,6 +1,6 @@
 # Basic Shell Scripting
 
-This project was create to practice shell scripting. Originally I ran the scripts from the command-line. I created a yaml file to call the scripts in an ansible playbook.
+This project was created to practice shell scripting. Originally I ran the scripts from the command-line. I created a yaml file to call the scripts in an ansible playbook.
 
 There is currently no use case for this repo. Its primarily a playground for leaning. Feel free to contribute, I'm always down to learn.
 
