@@ -15,16 +15,16 @@
         mode: '0755'
       loop:
         - make_dir.sh
-        - append_hello_world.sh
+        - append_text_to_file.sh
 
     - name: Make Directories
       shell: "./make_dir.sh {{ item }}"
       loop: "{{ dir_pattern.split(',') }}"
-      args:
-        executable: /bin/bash
+      # args:
+      #   executable: /bin/bash
 
     - name: Create Files and Append text to files
-      shell: "./append_hello_world.sh '{{ item }}' '{{ user_provided_text }}'"
+      shell: "./append_text_to_file.sh '{{ item }}' '{{ user_provided_text }}'"
       loop: "{{ file_patterns }}"
-      args:
-        executable: /bin/bash
+      # args:
+      #   executable: /bin/bash
