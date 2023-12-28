@@ -1,26 +1,26 @@
 # Basic Shell Scripting
 
-This project was create to practice shell scripting. Originally I ran the scripts from the command-line. I created a yaml file to call the scripts in an ansible playbook. 
+This project was create to practice shell scripting. Originally I ran the scripts from the command-line. I created a yaml file to call the scripts in an ansible playbook.
 
 There is currently no use case for this repo. Its primarily a playground for leaning. Feel free to contribute, I'm always down to learn.
 
-### Objective:
+## Objective
 
 * How to structure simple bash shell commands.
 * How to pass arguments to a bash shell.
 * Manipulate Folders and Files in a bash shell.
 
-Goal: 
+### Goal
 
 * Update and add scripts.
 * Learn from advanced scripts.
 * Turn this into a tool for future projects.
 
-## Scripts:
+### Scripts
 
-##### Make Directory Scripts
+#### Make Directory Script
 
-```
+```bash
 #!/bin/bash
 
 # match the first argument to the script
@@ -31,10 +31,9 @@ mkdir -p $FOLDERPATTERN
 
 ```
 
+#### Append Text to File Script
 
-##### Append Text to File Script
-
-```
+```bash
 #!/bin/bash
 
 # Pattern is provided as the first argument
