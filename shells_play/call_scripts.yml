@@ -1,0 +1,30 @@
+---
+- name: Create Directories and Files
+  hosts: localhost
+  connection: local
+  gather_facts: no
+  vars:
+    dir_pattern: "html,yaml,json"
+    file_patterns: ["html/html_1.html", "html/html_2.html", "yaml/yaml_1.yml", "yaml/yaml_2.yml", "json/json_1.json", "json/json_2.json"]
+    user_provided_text: "This is the text provided by the user."
+
+  tasks:
+    - name: Make Scripts Executable
+      file:
+        path: "{{ item }}"
+        mode: '0755'
+      loop:
+        - make_dir.sh
+        - append_hello_world.sh
+
+    - name: Make Directories
+      shell: "./make_dir.sh {{ item }}"
+      loop: "{{ dir_pattern.split(',') }}"
+      args:
+        executable: /bin/bash
+
+    - name: Create Files and Append text to files
+      shell: "./append_hello_world.sh '{{ item }}' '{{ user_provided_text }}'"
+      loop: "{{ file_patterns }}"
+      args:
+        executable: /bin/bash
