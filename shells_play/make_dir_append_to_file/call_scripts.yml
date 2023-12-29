@@ -24,7 +24,7 @@
       #   executable: /bin/bash
 
     - name: Create Files and Append text to files
-      shell: "./append_text_to_file.sh '{{ item }}' '{{ user_provided_text }}'"
+      shell: "'./append_text_to_file.sh' '{{ item }}' '{{ user_provided_text }}'"
       loop: "{{ file_patterns }}"
       # args:
       #   executable: /bin/bash

@@ -3,15 +3,19 @@
   hosts: localhost
   gather_facts: no
   vars:
-    script_path: "create_dynamic_files.sh"
+    script_path: "./create_dynamic_files.sh"
     target_directory: "results"
-    message_to_append: "Hello it's LeadBlackTech"
+    message_to_append: "Hello its LeadBlackTech"
+    file_name: "html,yaml,json"
 
   tasks:
     - name: Execute the script to append message to files
-      shell: "{{ script_path }} '{{ target_directory }}' '{{ message_to_append }}'"
+      shell: "'./create_dynamic_files.sh' '{{ target_directory }}' '{{ message_to_append }}' '{{ item }}'" #needs work
+      loop: "{{ file_name.split(',') }}"
       args:
         executable: /bin/bash
+      run_once: true
+
 
 # will integrate this script with the previous
 # script to create dynamic files
