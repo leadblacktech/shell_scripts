@@ -12,3 +12,9 @@
       shell: "{{ script_path }} '{{ target_directory }}' '{{ message_to_append }}'"
       args:
         executable: /bin/bash
+
+# will integrate this script with the previous
+# script to create dynamic files
+# and append message to them
+# Will modify this code to take ansible survey vars as input for the message to append
+# will modifyy this code to take ansible prompt vars as input for the message to append
