@@ -5,7 +5,7 @@
   vars:
     script_path: "create_dynamic_files.sh"
     target_directory: "results"
-    message_to_append: "Hello is LeadBlackTech"
+    message_to_append: "Hello it's LeadBlackTech"
 
   tasks:
     - name: Execute the script to append message to files
