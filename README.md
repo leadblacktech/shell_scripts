@@ -75,7 +75,7 @@ mkdir -p $FOLDERPATTERN
 # Pattern is provided as the first argument
 FILEPATTERN=$1
 
-# Text to append
+# Text to append as the second argument 
 TEXT=$2
 
 # Append to the file
