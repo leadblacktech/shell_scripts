@@ -1,0 +1,14 @@
+---
+- name: Append message to files shell script
+  hosts: localhost
+  gather_facts: no
+  vars:
+    script_path: "create_dynamic_files.sh"
+    target_directory: "results"
+    message_to_append: "Hello is LeadBlackTech"
+
+  tasks:
+    - name: Execute the script to append message to files
+      shell: "{{ script_path }} '{{ target_directory }}' '{{ message_to_append }}'"
+      args:
+        executable: /bin/bash
