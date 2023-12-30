@@ -84,3 +84,58 @@ for file in $FILEPATTERN; do
 done
 
 ```
+
+### Create Dynamic Folders and Files Playbook
+
+```yaml
+---
+- name: Append message to files shell script
+  hosts: localhost
+  gather_facts: no
+  vars:
+    script_path: "./create_dynamic_files.sh"
+    target_directory: "results"
+    message_to_append: "Hello its LeadBlackTech"
+    file_name: "test"
+    file_type: "html"
+
+  tasks:
+    - name: Execute the script to append message to files
+      shell: "'./create_dynamic_files.sh' '{{ target_directory }}' '{{ message_to_append }}' '{{ file_name }}' '{{ file_type }}'"
+      args:
+        executable: /bin/bash
+
+
+# will integrate this script with the previous
+# script to create dynamic files
+# and append message to them
+# Will modify this code to take ansible survey vars as input for the message to append
+# will modifyy this code to take ansible prompt vars as input for the message to append
+
+```
+
+#### Create Dynamic Folders and Files
+
+```bash
+
+#!/bin/bash                                          
+
+DIRECTORY=$1
+MESSAGE=$2                                     
+FILE_NAME=$3                                 
+FILE_TYPE=$4                                 
+
+cd "$DIRECTORY" || exit
+
+for i in {1..5}; do
+  echo "$MESSAGE" | tee -a "$FILE_NAME"_"$i"."$FILE_TYPE" > /dev/null
+  done
+
+# Append the message to each file
+# loop in the range of 1 to 5
+# echo the message and pipe it to the tee command
+# tee the output to the file 
+# -a append the output to the file instead of overwriting it
+# > /dev/null redirect the output to the null device (discard it) no display on the terminal
+
+```
