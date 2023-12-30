@@ -6,15 +6,14 @@
     script_path: "./create_dynamic_files.sh"
     target_directory: "results"
     message_to_append: "Hello its LeadBlackTech"
-    file_name: "html,yaml,json"
+    file_name: "test"
+    file_type: "html"
 
   tasks:
     - name: Execute the script to append message to files
-      shell: "'./create_dynamic_files.sh' '{{ target_directory }}' '{{ message_to_append }}' '{{ item }}'" #needs work
-      loop: "{{ file_name.split(',') }}"
+      shell: "'./create_dynamic_files.sh' '{{ target_directory }}' '{{ message_to_append }}' '{{ file_name }}' '{{ file_type }}'"
       args:
         executable: /bin/bash
-      run_once: true
 
 
 # will integrate this script with the previous
